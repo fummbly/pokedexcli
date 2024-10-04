@@ -7,11 +7,12 @@ import (
 )
 
 func main() {
+	// Creating a pokeCLient for the config
 	pokeClient := pokeapi.NewClient(5 * time.Second)
 	cfg := &config{
 		client: pokeClient,
 	}
-
+	// starting repl session
 	startRepl(cfg)
 
 }

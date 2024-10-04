@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// prints the name and description of each command
 func commandHelp(cfg *config) error {
 	fmt.Println()
 	fmt.Println("Welcome to the Pokedex")
