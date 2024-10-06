@@ -19,3 +19,19 @@ func commandMapf(cfg *config) error {
 
 	return nil
 }
+
+func commandMapb(cfg *config) error {
+	locations, err := cfg.client.ListLocations(cfg.prevLocationURL)
+	if err != nil {
+		return err
+	}
+
+	cfg.nextLocationURL = locations.Next
+	cfg.prevLocationURL = locations.Previous
+
+	for _, loc := range locations.Results {
+		fmt.Println(loc.Name)
+	}
+
+	return nil
+}
