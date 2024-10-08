@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 // map forward function
-func commandMapf(cfg *config) error {
+func commandMapf(cfg *config, commandArg string) error {
+
 	// get the locations from the pokeapi
 	locations, err := cfg.client.ListLocations(cfg.nextLocationURL)
 	if err != nil {
@@ -20,7 +21,7 @@ func commandMapf(cfg *config) error {
 	return nil
 }
 
-func commandMapb(cfg *config) error {
+func commandMapb(cfg *config, commandArg string) error {
 	locations, err := cfg.client.ListLocations(cfg.prevLocationURL)
 	if err != nil {
 		return err
