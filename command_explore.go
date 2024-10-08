@@ -7,13 +7,14 @@ func commandExplore(cfg *config, commandArg string) error {
 		return fmt.Errorf("Missing location name or id")
 	}
 
+	fmt.Printf("Exploring %s...\n", commandArg)
 	location, err := cfg.client.GetLocation(commandArg)
 	if err != nil {
 		return err
 	}
-
+	fmt.Println("Found pokemon:")
 	for _, pokemon := range location.PokemonEncounters {
-		fmt.Println(pokemon.Pokemon.Name)
+		fmt.Printf(" - %s\n", pokemon.Pokemon.Name)
 	}
 
 	return nil
