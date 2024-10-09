@@ -2,13 +2,13 @@ package main
 
 import "fmt"
 
-func commandExplore(cfg *config, commandArg string) error {
-	if commandArg == "" {
-		return fmt.Errorf("Missing location name or id")
+func commandExplore(cfg *config, args ...string) error {
+	if len(args) < 1 {
+		return fmt.Errorf("You must include an area")
 	}
 
-	fmt.Printf("Exploring %s...\n", commandArg)
-	location, err := cfg.client.GetLocation(commandArg)
+	fmt.Printf("Exploring %s...\n", args[0])
+	location, err := cfg.client.GetLocation(args[0])
 	if err != nil {
 		return err
 	}

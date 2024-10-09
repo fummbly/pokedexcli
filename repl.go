@@ -32,16 +32,16 @@ func startRepl(cfg *config) {
 		}
 		// taking the first word of the input as a command
 		commandName := words[0]
-		commandArg := ""
+		args := []string{}
 
 		if len(words) > 1 {
-			commandArg = words[1]
+			args = words[1:]
 
 		}
 
 		command, exists := getCommands()[commandName]
 		if exists {
-			err := command.callback(cfg, commandArg)
+			err := command.callback(cfg, args...)
 			if err != nil {
 				fmt.Println(err)
 
@@ -66,7 +66,7 @@ func cleanInput(text string) []string {
 type cliCommand struct {
 	name        string
 	description string
-	callback    func(*config, string) error
+	callback    func(*config, ...string) error
 }
 
 // function for defining commands

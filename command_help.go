@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 // prints the name and description of each command
-func commandHelp(cfg *config, commandArg string) error {
-	if commandArg != "" {
-		command, exists := getCommands()[commandArg]
+func commandHelp(cfg *config, args ...string) error {
+	if len(args) > 0 {
+		command, exists := getCommands()[args[0]]
 		if exists {
 			fmt.Printf("%s: %s\n", command.name, command.description)
 			return nil
