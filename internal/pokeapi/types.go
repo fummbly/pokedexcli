@@ -14,7 +14,7 @@ type RespLocations struct {
 type Pokemon struct {
 	ID             int    `json:"id"`
 	Name           string `json:"name"`
-	BaseExperiance int    `json:"base_experiance"`
+	BaseExperience int    `json:"base_experience"`
 	Height         int    `json:"height"`
 	IsDefault      bool   `json:"is_default"`
 	Order          int    `json:"order"`
