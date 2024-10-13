@@ -18,7 +18,7 @@ func commandCatch(cfg *config, args ...string) error {
 
 	chance := rand.Intn(poke.BaseExperience)
 
-	fmt.Println("Throwing pokeball...")
+	fmt.Printf("Throwing pokeball at %s...\n", poke.Name)
 
 	if chance > 40 {
 		fmt.Printf("Failed to catch: %s\n", poke.Name)
